@@ -13,10 +13,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 事件委托将事件监听器添加到父元素 当触及到子元素时，事件会冒泡到父元素触发监听器 好处：  内存占用减少，因为只需一个父元素处理程序 无需 删除时解绑处理程序 或 将处理程序绑定到新元素  2. 未声明变量&#x2F;null&#x2F;undefined未声明变量：未使用var、let、const声明变量，就为一个变量赋值  全局作用域（严格模式下报错）  undefined：一个变量已经">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082138703.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082139323.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082212025.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082216171.png">
 <meta property="article:published_time" content="2022-10-07T15:13:40.000Z">
-<meta property="article:modified_time" content="2022-10-07T15:14:59.142Z">
+<meta property="article:modified_time" content="2022-10-08T14:36:03.930Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082138703.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -114,6 +119,83 @@
 <ul>
 <li>检查同undefined</li>
 </ul>
+<h2 id="3-浏览器事件循环-Event-Loop）"><a href="#3-浏览器事件循环-Event-Loop）" class="headerlink" title="3. 浏览器事件循环(Event Loop）"></a>3. 浏览器事件循环(Event Loop）</h2><p>任务分为同步&#x2F;异步</p>
+<p>同步进入主线程执行</p>
+<p>异步注册回调函数，完成指定任务后进入Event Queue等待主线程完成后执行</p>
+<img src="https://raw.githubusercontent.com/LVZJself/image/main/202210082138703.png" style="zoom:50%;" />
+
+<p>macro-task(宏任务): </p>
+<ul>
+<li>整体代码</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+</ul>
+<p>micro-task(微任务):</p>
+<ul>
+<li>Promise</li>
+</ul>
+<p>宏任务和微任务对应不同的Event Queue</p>
+<p>process.nextTick()位于宏任务后，微任务前</p>
+<p><strong>顺序</strong>：</p>
+<p>  第一次循环：进入整体代码（宏任务）后，接着执行所有微任务</p>
+<p>  第二次循环：再次执行一个宏任务，执行所有微任务</p>
+<p>  第n次同上</p>
+<img src="https://raw.githubusercontent.com/LVZJself/image/main/202210082139323.png" style="zoom:50%;" />
+
+<p>eg：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">    process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;3&#x27;</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;4&#x27;</span>);</span><br><span class="line">        <span class="title function_">resolve</span>();</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">process.<span class="title function_">nextTick</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;6&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;7&#x27;</span>);</span><br><span class="line">    <span class="title function_">resolve</span>();</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;8&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>​        整体代码作为宏任务开始第一次循环</p>
+<ul>
+<li><p><strong>输出 1</strong></p>
+</li>
+<li><p>setTimeout的回调函数进入宏任务队列</p>
+</li>
+<li><p>process.nextTick的回调函数排于微队列之前</p>
+</li>
+<li><p>Promise，new Promise直接执行，<strong>输出 7</strong>，then进入微队列</p>
+<p>此时第一次宏任务执行完毕，执行所有微任务</p>
+</li>
+<li><p>process.nextTick的回调函数<strong>输出 6</strong></p>
+</li>
+<li><p>then<strong>输出 8</strong></p>
+<p>第一次Event Loop结束，执行下一个宏任务 setTimeout的回调函数</p>
+</li>
+<li><p><strong>输出 2</strong></p>
+</li>
+<li><p>process.nextTick的回调函数排于微队列之前</p>
+</li>
+<li><p>Promise，new Promise直接执行，<strong>输出 4</strong>，then进入微队列</p>
+<p>此时第二次宏任务执行完毕，执行所有微任务</p>
+</li>
+<li><p>process.nextTick的回调函数<strong>输出 3</strong></p>
+</li>
+<li><p>then<strong>输出 5</strong></p>
+</li>
+</ul>
+<h2 id="4-闭包"><a href="#4-闭包" class="headerlink" title="4.闭包"></a>4.闭包</h2><p><strong>一个函数访问他的外部变量</strong></p>
+<p>调用函数时this指向</p>
+<ul>
+<li><p>方法调用模式</p>
+<p>当一个函数被保存为对象的属性时，称为方法</p>
+<p>方法被调用时，this指向 调用者</p>
+<img src="https://raw.githubusercontent.com/LVZJself/image/main/202210082212025.png" style="zoom:50%;" />
+</li>
+<li><p>函数调用模式</p>
+<p>指向全局	</p>
+<img src="https://raw.githubusercontent.com/LVZJself/image/main/202210082216171.png" style="zoom:80%;" /></li>
+</ul>
+<p>eg1：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;window&quot;</span></span><br><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;object&quot;</span>,</span><br><span class="line">    <span class="attr">getNameFunc</span>: <span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">name</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myObject.<span class="title function_">getNameFunc</span>()());</span><br></pre></td></tr></table></figure>
+
+<p>答案：window</p>
+<p>myObject.getNameFunc() 为方法调用，结果为匿名函数 <code>function ()&#123;return this.name;&#125;</code> ，同时 this 指向 myObject</p>
+<p>myObject.getNameFunc()() 为函数调用，此时 this 指向全局，所以输出全局变量</p>
+<p>eg2：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;window&quot;</span></span><br><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;object&quot;</span>,</span><br><span class="line">    <span class="attr">getNameFunc</span>: <span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="variable language_">this</span>;	</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line">            <span class="keyword">return</span> that.<span class="property">name</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myObject.<span class="title function_">getNameFunc</span>()());</span><br></pre></td></tr></table></figure>
+
+<p>答案：object</p>
+<p>myObject.getNameFunc() 为方法调用，此时 that 与 this 同时指向 myObject，所以输出局部变量</p>
 
       
     </div>
@@ -128,11 +210,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2022/09/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2022/10/07/algorithms/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          algorithms
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -156,7 +242,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
     </div>
   </div>
 
@@ -169,11 +255,11 @@
       <ul>
         
           <li>
-            <a href="/2022/10/07/frontend-point/">frontend-point</a>
+            <a href="/2022/10/07/algorithms/">algorithms</a>
           </li>
         
           <li>
-            <a href="/2022/09/30/hello-world/">Hello World</a>
+            <a href="/2022/10/07/frontend-point/">frontend-point</a>
           </li>
         
       </ul>
