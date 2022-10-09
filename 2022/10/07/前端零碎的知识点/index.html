@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   
   
-  <title>frontend-point | Hexo</title>
+  <title>前端零碎的知识点 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="1. 事件委托将事件监听器添加到父元素 当触及到子元素时，事件会冒泡到父元素触发监听器 好处：  内存占用减少，因为只需一个父元素处理程序 无需 删除时解绑处理程序 或 将处理程序绑定到新元素  2. 未声明变量&#x2F;null&#x2F;undefined未声明变量：未使用var、let、const声明变量，就为一个变量赋值  全局作用域（严格模式下报错）  undefined：一个变量已经">
 <meta property="og:type" content="article">
-<meta property="og:title" content="frontend-point">
-<meta property="og:url" content="http://example.com/2022/10/07/frontend-point/index.html">
+<meta property="og:title" content="前端零碎的知识点">
+<meta property="og:url" content="http://example.com/2022/10/07/%E5%89%8D%E7%AB%AF%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 事件委托将事件监听器添加到父元素 当触及到子元素时，事件会冒泡到父元素触发监听器 好处：  内存占用减少，因为只需一个父元素处理程序 无需 删除时解绑处理程序 或 将处理程序绑定到新元素  2. 未声明变量&#x2F;null&#x2F;undefined未声明变量：未使用var、let、const声明变量，就为一个变量赋值  全局作用域（严格模式下报错）  undefined：一个变量已经">
 <meta property="og:locale" content="en_US">
@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082212025.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082216171.png">
 <meta property="article:published_time" content="2022-10-07T15:13:40.000Z">
-<meta property="article:modified_time" content="2022-10-08T14:36:03.930Z">
+<meta property="article:modified_time" content="2022-10-09T14:00:19.125Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082138703.png">
@@ -78,9 +78,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-frontend-point" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-前端零碎的知识点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/10/07/frontend-point/" class="article-date">
+    <a href="/2022/10/07/%E5%89%8D%E7%AB%AF%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" class="article-date">
   <time class="dt-published" datetime="2022-10-07T15:13:40.000Z" itemprop="datePublished">2022-10-07</time>
 </a>
     
@@ -92,7 +92,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      frontend-point
+      前端零碎的知识点
     </h1>
   
 
@@ -173,7 +173,7 @@
 <li><p>then<strong>输出 5</strong></p>
 </li>
 </ul>
-<h2 id="4-闭包"><a href="#4-闭包" class="headerlink" title="4.闭包"></a>4.闭包</h2><p><strong>一个函数访问他的外部变量</strong></p>
+<h2 id="4-闭包"><a href="#4-闭包" class="headerlink" title="4. 闭包"></a>4. 闭包</h2><p><strong>一个函数访问他的外部变量</strong></p>
 <p>调用函数时this指向</p>
 <ul>
 <li><p>方法调用模式</p>
@@ -196,11 +196,81 @@
 
 <p>答案：object</p>
 <p>myObject.getNameFunc() 为方法调用，此时 that 与 this 同时指向 myObject，所以输出局部变量</p>
+<h2 id="5-let-x2F-var-x2F-const"><a href="#5-let-x2F-var-x2F-const" class="headerlink" title="5. let&#x2F;var&#x2F;const"></a>5. let&#x2F;var&#x2F;const</h2><ul>
+<li><p>var为函数作用域，let&#x2F;const为块级作用域</p>
+</li>
+<li><p>var可以变量提升</p>
+</li>
+<li><p>var：可重复声明，值可变</p>
+<p>let：同一块级作用域下，let只能声明一次</p>
+<p>const：声明时必须赋值，且不允许改变</p>
+</li>
+<li><p>var在全局作用域声明时会成为windows对象的属性</p>
+<p>let不会，但对应变量会在生命周期内存续，访问时为undefined</p>
+</li>
+</ul>
+<h2 id="6-变量-x2F-函数提升"><a href="#6-变量-x2F-函数提升" class="headerlink" title="6. 变量&#x2F;函数提升"></a>6. 变量&#x2F;函数提升</h2><ul>
+<li><p>变量提升</p>
+<ul>
+<li><p>var声明的变量可以提升，值为undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">//输出undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//上面代码实际执行顺序为</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>函数提升</p>
+<ul>
+<li><p>函数声明式：可以在定义前被调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fun</span>();<span class="comment">//输出 函数声明式</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;函数声明式&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数表达式：可以理解为变量提升</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fun);<span class="comment">//undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> fun);<span class="comment">//undefined</span></span><br><span class="line"><span class="title function_">fun</span>();<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fun = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;函数表达式&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>例题：</p>
+<ul>
+<li><pre><code class="javascript">function a() &#123;&#125;
+var a;
+console.log(typeof a)//输出：function，函数因为不会被覆盖
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ```javascript</span><br><span class="line">  function a() &#123;&#125;</span><br><span class="line">  var a = 1;</span><br><span class="line">  console.log(typeof a)//输出：number，函数会被覆盖</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>&#96;&#96;&#96;javascript<br>console.log(typeof a)&#x2F;&#x2F;输出：function，因为函数提升优先级高<br>function a() {}<br>var a &#x3D; 1;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    结论：函数提升优先级高于变量提升，且不会被同名变量声明时覆盖；但会被同名变量赋值后覆盖		</span><br><span class="line"></span><br><span class="line">## 7. JS中的arguments</span><br><span class="line"></span><br><span class="line">* 类数组对象，对应于传递给函数的参数 </span><br><span class="line"></span><br><span class="line">* 对应于（除箭头函数）所有函数</span><br><span class="line"></span><br><span class="line">* 可以用如下方式引用</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">arguments[0]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>只有 length 一个属性，对应参数的个数</p>
+</li>
+<li><p>可以被转换为Array，通过以下方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> args = [].<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>);<span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> args = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>);<span class="comment">//方法2</span></span><br><span class="line"><span class="comment">//ES6新增</span></span><br><span class="line"><span class="keyword">let</span> args = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="variable language_">arguments</span>);<span class="comment">//Array.from可转化类数组和可遍历两种对象</span></span><br><span class="line"><span class="keyword">let</span> args = [...<span class="variable language_">arguments</span>];<span class="comment">// ‘...’ 拓展运算符</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-拓展运算符-…"><a href="#8-拓展运算符-…" class="headerlink" title="8. 拓展运算符 …"></a>8. 拓展运算符 …</h2><p>用于取出参数对象中的所有可遍历属性，(浅)拷贝到当前对象之中</p>
+<ul>
+<li><p>基础数据类型按值访问，拷贝时复制一份，修改值互不影响</p>
+<p>常见的基础数据类型：Number、String、Boolean、Null、Undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123; ...obj1, <span class="attr">b</span>: <span class="string">&#x27;2-edited&#x27;</span>&#125;;</span><br><span class="line"><span class="comment">//修改值互不影响</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1); <span class="comment">// &#123;a: 1, b: 2&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2); <span class="comment">//  &#123;a: 1, b: &quot;2-edited&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用数据类型拷贝对象的引用</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: &#123;<span class="attr">name</span>: <span class="string">&#x27;d&#x27;</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123; ...obj1&#125;;</span><br><span class="line">obj2.<span class="property">c</span>.<span class="property">name</span> = <span class="string">&#x27;d-edited&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1); <span class="comment">// &#123;a: 1, b: 2, c: &#123;name: &#x27;d-edited&#x27;&#125;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2); <span class="comment">// &#123;a: 1, b: 2, c: &#123;name: &#x27;d-edited&#x27;&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将数组改为参数序列</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="title function_">add</span>(...numbers) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [...arr1];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过解构赋值生成数组（拓展运算符只能放在参数最后一位）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line">a = list[<span class="number">0</span>], rest = list.<span class="title function_">slice</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line">[a, ...rest] = list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将字符串转化为数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...<span class="string">&#x27;hello&#x27;</span>]</span><br><span class="line"><span class="comment">// [ &quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot; ]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>任何定义了遍历器（Iterator）接口的对象，都可以用扩展运算符转为真正的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nodeList = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> array = [...nodeList];</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/07/frontend-point/" data-id="cl8ymq9li00001wbhdzlo6xqt" data-title="frontend-point" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/07/%E5%89%8D%E7%AB%AF%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="cl91ezv3t0000ssbhg3pzf1mx" data-title="前端零碎的知识点" class="article-share-link">Share</a>
       
       
       
@@ -210,11 +280,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/10/07/algorithms/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/10/07/%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          algorithms
+          算法题记录
         
       </div>
     </a>
@@ -255,11 +325,11 @@
       <ul>
         
           <li>
-            <a href="/2022/10/07/algorithms/">algorithms</a>
+            <a href="/2022/10/07/%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/">算法题记录</a>
           </li>
         
           <li>
-            <a href="/2022/10/07/frontend-point/">frontend-point</a>
+            <a href="/2022/10/07/%E5%89%8D%E7%AB%AF%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">前端零碎的知识点</a>
           </li>
         
       </ul>
