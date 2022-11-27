@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>八股 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="HTML+CSS1. 盒模型   只要在代码头部添加了doctype声明，浏览器就会默认该页面为标准盒模型 如果不添加doctype声明，浏览器决定 也可以通过box-sizing属性设置：box-sizing:content-box(标准盒模型) \ border-box(怪异盒模型)   标准盒模型(w3c盒子模型)： 一个盒子的总宽度&#x3D; width + padding(左右) + borde">
+<meta property="og:type" content="article">
+<meta property="og:title" content="八股">
+<meta property="og:url" content="http://example.com/2022/11/27/bagu/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTML+CSS1. 盒模型   只要在代码头部添加了doctype声明，浏览器就会默认该页面为标准盒模型 如果不添加doctype声明，浏览器决定 也可以通过box-sizing属性设置：box-sizing:content-box(标准盒模型) \ border-box(怪异盒模型)   标准盒模型(w3c盒子模型)： 一个盒子的总宽度&#x3D; width + padding(左右) + borde">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221125164843.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221126221500.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221126222907.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221126225314.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221127221206.png">
+<meta property="article:published_time" content="2022-11-27T07:45:54.000Z">
+<meta property="article:modified_time" content="2022-11-27T14:58:28.391Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221125164843.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-bagu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/27/bagu/" class="article-date">
+  <time class="dt-published" datetime="2022-11-27T07:45:54.000Z" itemprop="datePublished">2022-11-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      八股
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML+CSS"></a>HTML+CSS</h3><h4 id="1-盒模型"><a href="#1-盒模型" class="headerlink" title="1. 盒模型"></a>1. 盒模型</h4><img src="https://raw.githubusercontent.com/LVZJself/image/main/20221125164843.png" style="zoom:50%;" />
+
+<ul>
+<li>只要在代码头部添加了doctype声明，浏览器就会默认该页面为标准盒模型</li>
+<li>如果不添加doctype声明，浏览器决定</li>
+<li>也可以通过box-sizing属性设置：<code>box-sizing:content-box(标准盒模型) \ border-box(怪异盒模型)</code></li>
+</ul>
+<ol>
+<li><p>标准盒模型(w3c盒子模型)：</p>
+<p><code>一个盒子的总宽度= width + padding(左右) + border(左右)+ margin(左右)</code></p>
+</li>
+<li><p>怪异盒模型(ie盒子模型)：主要表现在IE内核的浏览器</p>
+<p><code>一个盒子的总宽度= width + margin(左右)</code> （即width已经包含了padding和border值）</p>
+</li>
+</ol>
+<h4 id="2-块元素和行内元素"><a href="#2-块元素和行内元素" class="headerlink" title="2. 块元素和行内元素"></a>2. 块元素和行内元素</h4><p><strong>区别</strong>：</p>
+<ol>
+<li><p>块级元素，宽度默认是它容器的100%,各占据一行，垂直方向排列；内联元素，都是同一行，水平方向排列</p>
+</li>
+<li><p>块级元素，能容纳其他块元素或者内联元素；内联元素，只能容纳文本或其他内联元素</p>
+</li>
+<li><p>块级元素中高度(height)，行高(line-height)以及外边距(margin)和内边距(padding)都可以控制；</p>
+<p>行内元素设置width无效，height无效(可以设置line-height)，margin上下无效，padding上下无效</p>
+</li>
+</ol>
+<p><strong>常见的块级元素</strong>：</p>
+<ul>
+<li>div</li>
+<li>ul ,li 非排序列表</li>
+<li>form - 交互表单</li>
+<li>table - 表格</li>
+<li>h1 -h6 标题</li>
+<li>hr - 水平分隔线</li>
+<li>p - 段落</li>
+<li>dl -dt-dd - 定义列表</li>
+<li>address - 地址</li>
+<li>blockquote - 块引用</li>
+<li>fieldset - form控制组</li>
+</ul>
+<p><strong>常见的内联元素</strong>：</p>
+<ul>
+<li>a - 锚点</li>
+<li>select - 项目选择</li>
+<li>span - 常用内联容器，定义文本内区块</li>
+<li>strong - 粗体强调</li>
+<li>img - 图片</li>
+<li>input - 输入框</li>
+<li>label - 表格标签</li>
+<li>textarea - 多行文本输入框</li>
+<li>br - 换行</li>
+</ul>
+<h4 id="3-html语义化标签"><a href="#3-html语义化标签" class="headerlink" title="3. html语义化标签"></a>3. html语义化标签</h4><p>语义化是指<strong>使用语义恰当的标签</strong>，使页面有<strong>良好的结构</strong>，页面<strong>元素有含义</strong>，能够<strong>让人和搜索引擎都容易理解</strong></p>
+<p>比如：<code>header</code> <code>nav</code> <code>footer</code> <code>hgroup</code> <code>section</code> <code>article</code> <code>aside</code> <code>figure</code> <code>time</code> <code>address</code></p>
+<h4 id="4-伪类和伪元素的区别"><a href="#4-伪类和伪元素的区别" class="headerlink" title="4. 伪类和伪元素的区别"></a>4. 伪类和伪元素的区别</h4><p>根本区别在于：它们是否抽象创造了新的元素</p>
+<ul>
+<li>伪类是通过在<strong>元素选择器上加入伪类</strong>改变元素状态：<ul>
+<li>存在DOM文档中，逻辑上存在但在文档树中却无须标识的“幽灵”分类</li>
+<li>伪类的效果可以通过添加实际的类来实现</li>
+</ul>
+</li>
+<li>伪元素通过<strong>对元素的操作</strong>进行对元素的改变：<ul>
+<li>不存在在DOM文档中，是虚拟的元素，是创建新元素。代表某个元素的子元素，这个子元素虽然在逻辑上存在，但却并不实际存在于文档树中</li>
+<li>伪元素的效果可以通过添加实际的元素来实现</li>
+</ul>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>伪类只能使用“：”<br>而伪元素既可以使用“:”，也可以使用“::”</li>
+<li>因为伪类是类似于添加类所以可以是多个，而伪元素在一个选择器中只能出现一次，并且只能出现在末尾</li>
+</ul>
+<h4 id="5-css实现水平垂直居中"><a href="#5-css实现水平垂直居中" class="headerlink" title="5. css实现水平垂直居中"></a>5. css实现水平垂直居中</h4><ol>
+<li><p>水平居中</p>
+<ul>
+<li><p>行内元素</p>
+<p><code>text-align:center</code></p>
+</li>
+<li><p>块级元素</p>
+<ol>
+<li><p><code>display:flex</code>中的<code>align-self </code> + <code>flex-direction</code></p>
+<p>无条件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="comment">/* width: 500px;</span></span><br><span class="line"><span class="comment">            height: 100px; */</span></span><br><span class="line">            <span class="comment">/* 父元素 display:flex */</span></span><br><span class="line">            <span class="attr">display</span>: flex;</span><br><span class="line">            flex-<span class="attr">direction</span>: column;<span class="comment">//flex-direction默认值是row(垂直居中使用)，另外一个是column</span></span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px;</span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">/* 子元素 align-self:center */</span></span><br><span class="line">            align-<span class="attr">self</span>: center;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>margin:auto + text-align</p>
+<p>需要父元素长宽</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="comment">/* 父元素的width和height必须指定 */</span></span><br><span class="line">            <span class="attr">width</span>: 500px;</span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px;</span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">/* 通过margin+text-align实现水平居中 */</span></span><br><span class="line">            <span class="attr">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">            text-<span class="attr">align</span>: center;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>display:table-cell</code>+<code>margin-left</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="attr">width</span>: 200px;</span><br><span class="line">            <span class="attr">height</span>: 200px;</span><br><span class="line">            <span class="comment">/* 通过 display:table-cell 和 margin-left 实现水平居中 */</span></span><br><span class="line">            <span class="attr">display</span>: table-cell;</span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px;</span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">/* 让子元素左边与父元素的最左侧相距50%((200-100)/2) */</span></span><br><span class="line">            margin-<span class="attr">left</span>: 50px;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>垂直居中</p>
+<ul>
+<li><p>行内元素</p>
+<ol>
+<li><code>verticle-align:middle</code></li>
+<li>line-height：将子元素行高等于父元素height(适用于子元素为单行文本)</li>
+</ol>
+</li>
+<li><p>块级元素</p>
+<ol>
+<li><p><code>display:flex</code>中的<code>align-self</code>+<code>flex-direction</code></p>
+<p>无条件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="comment">/* width: 500px;</span></span><br><span class="line"><span class="comment">            height: 100px; */</span></span><br><span class="line">            <span class="comment">/* 父元素 display:flex */</span></span><br><span class="line">            <span class="attr">display</span>: flex;</span><br><span class="line">            <span class="comment">//flex-direction: row;</span></span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px;</span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">/* 子元素 align-self:center */</span></span><br><span class="line">            align-<span class="attr">self</span>: center;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>margin:auto+绝对定位（水平垂直居中）</p>
+<p>需要父元素长宽</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="attr">width</span>: 500px;</span><br><span class="line">            <span class="attr">height</span>: 500px;</span><br><span class="line">            <span class="comment">//父元素相对</span></span><br><span class="line">            <span class="attr">position</span>: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px; </span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">//单独使用仅会水平居中</span></span><br><span class="line">            <span class="attr">margin</span>: auto;  </span><br><span class="line">            <span class="comment">//绝对居中</span></span><br><span class="line">            <span class="attr">position</span>: absolute;  </span><br><span class="line">            <span class="comment">//上下左右设置为零</span></span><br><span class="line">            <span class="attr">top</span>: <span class="number">0</span>;  </span><br><span class="line">            <span class="attr">left</span>: <span class="number">0</span>;  </span><br><span class="line">            <span class="attr">right</span>: <span class="number">0</span>;  </span><br><span class="line">            <span class="attr">bottom</span>: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>display:table(-cell)</code>+<code>margin-left</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="attr">width</span>: 200px;</span><br><span class="line">            <span class="attr">height</span>: 200px;</span><br><span class="line">            <span class="comment">/* 通过 display:table-cell 和 margin-left 实现水平居中 */</span></span><br><span class="line">            <span class="attr">display</span>: table;</span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px;</span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">/* 让子元素左边与父元素的最左侧相距50%((200-100)/2) */</span></span><br><span class="line">            <span class="attr">display</span>: table-cell;</span><br><span class="line">            vertical-<span class="attr">align</span>: middle;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>水平垂直居中：</p>
+<ul>
+<li><p>行内元素</p>
+<ol>
+<li><p>利用水平对齐<code>text-align</code>和行高<code>line-height</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">div5</span> &#123;</span><br><span class="line">  background-<span class="attr">color</span>: #eee;</span><br><span class="line">  <span class="attr">width</span>: 200px;</span><br><span class="line">  <span class="attr">height</span>: 200px;</span><br><span class="line">  margin-<span class="attr">top</span>: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.<span class="property">div5</span> .<span class="property">center</span> &#123;</span><br><span class="line">  <span class="comment">//水平对齐</span></span><br><span class="line">  text-<span class="attr">align</span>: center;</span><br><span class="line">  <span class="comment">//行高等于父元素高度</span></span><br><span class="line">  line-<span class="attr">height</span>: 200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>块级元素</p>
+<ol>
+<li><p><code>flex</code>布局</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="attr">height</span>: 600px;</span><br><span class="line">            <span class="comment">//布局</span></span><br><span class="line">            <span class="attr">display</span>: flex;</span><br><span class="line">            <span class="comment">//水平</span></span><br><span class="line">            justify-<span class="attr">content</span>: center;</span><br><span class="line">            <span class="comment">//垂直</span></span><br><span class="line">            align-<span class="attr">items</span>: center;</span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px; </span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>margin:auto</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#father&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aqua;</span><br><span class="line">            <span class="attr">width</span>: 500px;</span><br><span class="line">            <span class="attr">height</span>: 500px;</span><br><span class="line">            <span class="comment">//父元素相对</span></span><br><span class="line">            <span class="attr">position</span>: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        #son&#123;</span><br><span class="line">            background-<span class="attr">color</span>: aquamarine;</span><br><span class="line">            <span class="attr">width</span>: 100px; </span><br><span class="line">            <span class="attr">height</span>: 100px;</span><br><span class="line">            <span class="comment">//单独使用仅会水平居中</span></span><br><span class="line">            <span class="attr">margin</span>: auto;  </span><br><span class="line">            <span class="comment">//绝对</span></span><br><span class="line">            <span class="attr">position</span>: absolute;  </span><br><span class="line">            <span class="comment">//上下左右设置为零</span></span><br><span class="line">            <span class="attr">top</span>: <span class="number">0</span>;  </span><br><span class="line">            <span class="attr">left</span>: <span class="number">0</span>;  </span><br><span class="line">            <span class="attr">right</span>: <span class="number">0</span>;  </span><br><span class="line">            <span class="attr">bottom</span>: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>布局<code>grid</code></p>
+<ul>
+<li>在子元素设置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">div6</span> &#123;</span><br><span class="line">  background-<span class="attr">color</span>: #eee;</span><br><span class="line">  <span class="attr">width</span>: 200px;</span><br><span class="line">  <span class="attr">height</span>: 200px;</span><br><span class="line">  margin-<span class="attr">top</span>: 20px;</span><br><span class="line">  <span class="comment">//设置grid布局</span></span><br><span class="line">  <span class="attr">display</span>: grid;</span><br><span class="line">&#125;</span><br><span class="line">.<span class="property">div6</span> .<span class="property">center</span> &#123;</span><br><span class="line">  <span class="comment">//垂直</span></span><br><span class="line">  align-<span class="attr">self</span>: center;</span><br><span class="line">  <span class="comment">//水平</span></span><br><span class="line">  justify-<span class="attr">self</span>: center;</span><br><span class="line">  <span class="comment">/* margin: auto; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>父元素设置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">div6</span> &#123;</span><br><span class="line">  background-<span class="attr">color</span>: #eee;</span><br><span class="line">  <span class="attr">width</span>: 200px;</span><br><span class="line">  <span class="attr">height</span>: 200px;</span><br><span class="line">  margin-<span class="attr">top</span>: 20px;</span><br><span class="line">  <span class="comment">//设置布局</span></span><br><span class="line">  <span class="attr">display</span>: grid;</span><br><span class="line">  <span class="comment">//垂直和水平</span></span><br><span class="line">  align-<span class="attr">items</span>: center;</span><br><span class="line">  justify-<span class="attr">items</span>: center;</span><br><span class="line">  <span class="comment">//另一种形式</span></span><br><span class="line">  <span class="comment">/* align-content: center;</span></span><br><span class="line"><span class="comment">  justify-content: center; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-css常见选择器"><a href="#6-css常见选择器" class="headerlink" title="6. css常见选择器"></a>6. css常见选择器</h4><ul>
+<li><p>标签名选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">标签名 &#123;</span><br><span class="line">	属性<span class="number">1</span>:属性值<span class="number">1</span>;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.类名 &#123;</span><br><span class="line">	属性<span class="number">1.</span>属性值<span class="number">1</span>;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>id选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#id名 &#123;</span><br><span class="line">	属性<span class="number">1</span>:属性值<span class="number">1</span>;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通配符选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">	属性名<span class="number">1</span>: 属性名<span class="number">1</span>;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>复合选择器</p>
+<ul>
+<li><p>后代&#x2F;包含选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	元素<span class="number">1</span> 元素<span class="number">2</span> &#123; 样式声明 &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"><span class="comment">//元素2只要包含在元素1里面即可，无论是儿子还是孙子</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子选择器：只能选择某元素的最近一级的子元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素<span class="number">1</span>&gt;元素<span class="number">2</span> &#123;样式声明&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>并集选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签<span class="number">1</span>,标签<span class="number">2</span> &#123;样式声明&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>伪类选择器</p>
+</li>
+</ul>
+<h4 id="7-优先级算法"><a href="#7-优先级算法" class="headerlink" title="7. 优先级算法"></a>7. 优先级算法</h4><ol>
+<li><p>首先，判断属性声明是否有<strong>权重</strong>，也就是是否在声明后面加上了<code>!important</code>。</p>
+<p>一条声明如果加上权重，那么他的优先级就是最高的，前提是它之后不再出现相同权重的声明。</p>
+</li>
+<li><p>如果<strong>权重相同</strong>，我们则需要去比较匹配规则的特殊性</p>
+<p>一条匹配规则由多个选择器构成，，分为四个等级，特殊性累加但不会进位</p>
+<ul>
+<li><p>行内样式，为<code>1 0 0 0</code></p>
+</li>
+<li><p><code>id</code>选择器，为<code>0 1 0 0 </code></p>
+</li>
+<li><p>类选择器，伪类选择器，属性选择器为：<code>0 0 1 0</code></p>
+</li>
+<li><p>元素选择器和伪元素选择器：<code>0 0 0 1</code></p>
+<p>从左往右比较，eg：特殊性值为<code>1000</code>的规则优先级就要比特殊性值为<code>0999</code>的规则高</p>
+</li>
+</ul>
+</li>
+<li><p>如果特殊性值相等，根据他们引用的顺序，<strong>后出现</strong>的规则的优先级<strong>最高</strong></p>
+</li>
+</ol>
+<h4 id="8-px-em-和-rem的区别"><a href="#8-px-em-和-rem的区别" class="headerlink" title="8. px em 和 rem的区别"></a>8. px em 和 rem的区别</h4><ul>
+<li><code>px</code>是固定的<strong>像素</strong>，一旦设置了就无法因为适应页面大小而改变</li>
+<li><code>em</code>和<code>rem</code>相对于<code>px</code>更具有灵活性，他们是相对长度单位，意思是长度不是定死了的，更适用于响应式布局</li>
+<li><code>em</code>是<strong>相对于其父元素</strong>来设置字体大小的，一般都是以<code>font-size</code>为基准。这样就会存在一个问题，进行任何元素设置，都有可能需要知道他父元素的大小</li>
+<li><code>Rem</code>是<strong>相对于根元素</strong>，这样就意味着，我们只需要在根元素确定一个参考值</li>
+</ul>
+<h4 id="9-Flex布局"><a href="#9-Flex布局" class="headerlink" title="9. Flex布局"></a>9. Flex布局</h4><p>采用 Flex 布局的元素，称为 Flex 容器，所有子元素自动成为容器成员，称为 Flex 项目</p>
+<p>容器有六个属性：</p>
+<ul>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h4 id="10-浮动塌陷的解决方法"><a href="#10-浮动塌陷的解决方法" class="headerlink" title="10. 浮动塌陷的解决方法"></a>10. 浮动塌陷的解决方法</h4><ol>
+<li><p>在浮动元素后面添加元素，并为其设置clear属性</p>
+</li>
+<li><p>after伪类(推荐)</p>
+<p>通过after伪类向元素的最后添加一个空白的块元素，然后对其清除浮动，效果与<code>1</code>相同且不会在页面中添加多余元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">clearfix</span>::after&#123;</span><br><span class="line">    <span class="attr">content</span>:<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attr">display</span>: block;</span><br><span class="line">    <span class="attr">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给父元素设置 overflow：hidden</p>
+<p>但是因为触发了BFC块级化格式上下文 就会按照bfc的规则渲染画面 bfc规则为浮动的元素也参与计算高度</p>
+<p><img src="https://raw.githubusercontent.com/LVZJself/image/main/20221126221500.png"></p>
+</li>
+</ol>
+<h4 id="11-position"><a href="#11-position" class="headerlink" title="11. position"></a>11. position</h4><p>规定元素的定位类型</p>
+<ul>
+<li><p><code>absolute</code>(绝对定位)：元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于 <code>&lt;html&gt;</code></p>
+</li>
+<li><p><code>fixed</code>(固定定位)：相对于浏览器窗口进行定位</p>
+</li>
+<li><p><code>relative</code>(相对定位)：相对于其正常位置进行定位，不影响其他元素的偏移</p>
+</li>
+<li><p><code>sticky</code>(粘性定位)：跨越特定阈值前为相对定位，之后为固定定位</p>
+<p>eg：<img src="https://raw.githubusercontent.com/LVZJself/image/main/20221126222907.png"></p>
+<ul>
+<li>须指定 <code>top</code> 、 <code>right</code> 、 <code>bottom</code> 、 <code>left</code> 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。 并且 <code>top</code> 和 <code>bottom</code> 同时设置时，<code>top</code> 生效的优先级高，<code>left</code> 和 <code>right</code> 同时设置时，<code>left</code> 的优先级高</li>
+</ul>
+</li>
+<li><p><code>static</code>(静态定位)：默认定位方式；始终根据页面的正常流进行定位</p>
+</li>
+<li><p><code>inherit</code>：继承父元素的 <code>position</code> 值</p>
+</li>
+</ul>
+<h4 id="12-BFC、IFC"><a href="#12-BFC、IFC" class="headerlink" title="12. BFC、IFC"></a>12. BFC、IFC</h4><ul>
+<li><p>BFC(Block Formatting Contexts)：块级格式化上下文，是一个决定如何渲染元素的容器</p>
+<ul>
+<li><p>触发条件：</p>
+<ul>
+<li>根元素</li>
+<li><code>flloat</code>的值不是<code>none</code></li>
+<li><code>position</code>的值不是<code>static</code>或<code>relative</code></li>
+<li><code>display</code>的值是<code>inline-block、inline-flex、flex、flow-root、table-caption、table-cell</code></li>
+<li><code>overflow</code>的值不是<code>visible</code></li>
+</ul>
+</li>
+<li><p>渲染规则：</p>
+<ul>
+<li>内部的块级元素会在垂直方向一个接一个的放置</li>
+<li>块级元素垂直方向的距离由margin决定，属于同一个BFC的两个相邻块级元素的margin会发生重叠</li>
+<li>对于从左往右的格式化，每个元素（块级元素与行内元素）的左边缘，与包含块的左边缘相接触，(对于从右往左的格式化则相反)。即使包含块中的元素存在浮动也是如此，除非其中元素再生成一个BFC。</li>
+<li>BFC的区域不会与浮动元素重叠<br>这点是BFC最重要的一点渲染规则，可以用这个规则解决很多布局的问题。</li>
+<li>BFC是一个隔离的独立容器，容器里面的子元素和外面的元素互不影响。</li>
+<li>计算BFC容器的高度时，浮动元素也参与计算。<br>这个规则，可以用来解决内部元素浮动，导致父级元素的高度坍塌问题</li>
+</ul>
+</li>
+<li><p>应用：</p>
+<ul>
+<li><p>清除浮动<br>根据BFC的渲染规则第6点（计算BFC容器的高度时，浮动元素也参与计算）来清除浮动，解决高度坍塌的问题。</p>
+</li>
+<li><p>解决上下margin边距重叠问题<br>利用BFC渲染规则第2点（属于同一个BFC的两个相邻块级元素的margin会发生重叠），那么不属于同一个BFC的两个相邻块级元素的margin就不会发生重叠。</p>
+</li>
+<li><p>实现自适应两栏布局：</p>
+<p><img src="https://raw.githubusercontent.com/LVZJself/image/main/20221126225314.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .<span class="property">main</span>&#123;</span><br><span class="line">        <span class="attr">background</span>: red;</span><br><span class="line">        <span class="attr">height</span>:500px;</span><br><span class="line">        <span class="attr">overflow</span>:auto</span><br><span class="line">    &#125;</span><br><span class="line">    .<span class="property">sider</span> &#123;</span><br><span class="line">        <span class="attr">float</span>: left;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">20</span>%;</span><br><span class="line">        <span class="attr">height</span>:300px;</span><br><span class="line">        <span class="attr">background</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;sider&quot;</span>&gt;</span>我是侧边栏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span>&gt;</span>我是主体内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IFC(Inline Formatting Contexts)：内联格式化上下文</p>
+<ul>
+<li><p>触发条件：块级元素内仅包含内联元素</p>
+<p>注意：当IFC中有块级元素插入时，会产生两个匿名块将父元素分割开来，产生两个IFC</p>
+</li>
+<li><p>渲染规则：</p>
+<ul>
+<li>子元素水平方向横向排列，并且垂直方向起点为元素顶部。</li>
+<li>子元素只会计算横向样式空间，【padding、border、margin】，垂直方向样式空间不会被计算，【padding、border、margin】。</li>
+<li>在垂直方向上，子元素可以不同形式对齐（vertical-align）</li>
+<li>能把在一行上的框都完全包含进去的一个矩形区域，被称为该行的行框（line box）。行框的宽度是由包含块（containing box）和与其中的浮动元素来决定。</li>
+<li>IFC中的“line box”一般左右边贴紧其包含块，但float元素会优先排列。</li>
+<li>IFC中的“line box”高度由 CSS 行高计算规则来确定，同个IFC下的多个line box高度可能会不同。</li>
+<li>当 inline-level boxes的总宽度少于包含它们的line box时，其水平渲染规则由 text-align 属性值来决定。</li>
+<li>当一个“inline box”超过父元素的宽度时，它会被分割成多个boxes，这些 boxes 分布在多个“line box”中。如果子元素未设置强制换行的情况下，“inline box”将不可被分割，将会溢出父元素</li>
+</ul>
+</li>
+<li><p>应用：</p>
+<ul>
+<li>水平居中，当一个块要在当前环境水平居中，设置<code>display:inline-block</code>,会在外层生成一个IFC，通过设置<code>text-align:center</code>既可使其居中</li>
+<li>垂直居中，创建一个IFC，用其中一个元素撑开高度，然后设置其<code>vertical-align:middle</code>，其他行内元素则可以在此父元素下垂直居中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>FFC(Flex formatting contexts)：弹性盒模型</p>
+<ul>
+<li>触发条件：父级元素设置<code>display:flex</code>或者<code>display:inline-flex</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><h4 id="1-上传"><a href="#1-上传" class="headerlink" title="1. 上传"></a>1. 上传</h4><ul>
+<li>传统开发上传(前后端混合)：将表单中文件传给后端，后端做上传</li>
+<li>前后端分离：将<code>file</code>数据添加到<code>FormData</code>对象上，利用ajax上传</li>
+</ul>
+<ol>
+<li><p>单文件上传</p>
+<p>表单元素上传：<code>&lt;input type=&quot;file&quot; id=&quot;file-uploader&quot;&gt;</code></p>
+<p>上传成功后获取File对象</p>
+<ul>
+<li><p>首先，通过<code>id</code>获取文件上传的实例</p>
+<p><code>const fileUploader = document.getElementById(&#39;file-uploader&#39;);</code></p>
+</li>
+<li><p>然后添加一个<code>change</code> 事件侦听器，以在上传完成后读取文件对象；我们从<code>event.target.files</code>属性获取上传的文件信息</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fileUploader.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> files = event.<span class="property">target</span>.<span class="property">files</span>;</span><br><span class="line"> <span class="comment">//console.log(&#x27;files&#x27;, files);//具有文件所有信息</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多文件：如果我们想上传多个文件，需要在标签上添加 <code>multiple</code> 属性</p>
+<p><code>&lt;input type=&quot;file&quot; id=&quot;file-uploader&quot; multiple /&gt;</code></p>
+</li>
+<li><p>显示文件预览内容</p>
+<p>可以使用<code>FileReader</code>对象将文件转换为二进制字符串。 然后添加<code>load</code> 事件侦听器，以在成功上传文件时获取二进制字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FileReader 实例</span></span><br><span class="line"><span class="keyword">const</span> reader = <span class="keyword">new</span> <span class="title class_">FileReader</span>();</span><br><span class="line">fileUploader.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> files = event.<span class="property">target</span>.<span class="property">files</span>;</span><br><span class="line">  <span class="keyword">const</span> file = files[<span class="number">0</span>];</span><br><span class="line">  reader.<span class="title function_">readAsDataURL</span>(file);</span><br><span class="line">  reader.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> img = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;img&#x27;</span>);</span><br><span class="line">    imageGrid.<span class="title function_">appendChild</span>(img);</span><br><span class="line">    img.<span class="property">src</span> = event.<span class="property">target</span>.<span class="property">result</span>;</span><br><span class="line">    img.<span class="property">alt</span> = file.<span class="property">name</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模拟上传进度</p>
+<p><code>FileReader</code>中的<code>process</code>事件表示上传进度</p>
+</li>
+<li><p>拖拽上传</p>
+<ul>
+<li><p>首先，创建一个拖放区域和一个可选的区域来显示上传的文件内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Drag &amp; Drop an Image<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;drop-zone&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        DROP HERE</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">	<span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    Your image to appear here..</span></span><br><span class="line"><span class="language-xml">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过它们各自的ID获取<code>dropzone</code>和<code>content</code> 区域</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dropZone = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;drop-zone&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;content&#x27;</span>)；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加一个<code>dragover</code> 事件处理程序，以显示将要复制的内容的效果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dropZone.<span class="title function_">addEventListener</span>(<span class="string">&#x27;dragover&#x27;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">  event.<span class="title function_">preventDefault</span>();</span><br><span class="line">  event.<span class="property">dataTransfer</span>.<span class="property">dropEffect</span> = <span class="string">&#x27;copy&#x27;</span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    dropEffect:设置或返回拖放目标上允许发生的拖放行为。如果此处设置的拖放行为不再effectAllowed属性设置的多种拖放行为之内，拖放操作将会失败。该属性值只允许为“null”、“copy”、“link”和“move”四值之一</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来，我们需要一个<code>drop</code>事件监听器来处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dropZone.<span class="title function_">addEventListener</span>(<span class="string">&#x27;drop&#x27;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Get the files</span></span><br><span class="line">  <span class="keyword">const</span> files = event.<span class="property">dataTransfer</span>.<span class="property">files</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h4 id="2-压缩上传图片"><a href="#2-压缩上传图片" class="headerlink" title="2. 压缩上传图片"></a>2. 压缩上传图片</h4><p>简版：思路：</p>
+<ol>
+<li><p>input 读取到 image&#x2F;file 创建一个FileReader 使用 FileReader 将其转换为 base64 编码</p>
+</li>
+<li><p>document.createElement(“canvas”) 创建canvas</p>
+</li>
+<li><p>new Image 创建img元素 使img的src指向FileReader转换的base64</p>
+</li>
+<li><p>ctx.drawImage(img,0,0, canvas.width, canvas.height) 将img画到canvas上</p>
+</li>
+<li><p>canvas.toDataURL(file.type, quality) 将canvas转换为图片base64格式</p>
+<p>最后返回的都是base64格式数据，如需file格式，需进行处理</p>
+<p>将 base64 转为 blod 再转为 file</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">compressPic</span>(<span class="params">file, quality</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> reads = <span class="keyword">new</span> <span class="title class_">FileReader</span>();</span><br><span class="line">    reads.<span class="title function_">readAsDataURL</span>(file)</span><br><span class="line">    reads.<span class="property">onload</span> = (&#123; <span class="attr">target</span>: &#123; <span class="attr">result</span>: src &#125;&#125;) &#123;</span><br><span class="line">         <span class="comment">// 这里quality的范围是（0-1）</span></span><br><span class="line">         <span class="keyword">var</span> canvas = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">         <span class="keyword">var</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">         <span class="keyword">var</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();</span><br><span class="line">         img.<span class="property">src</span> = src;</span><br><span class="line">         img.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">              <span class="keyword">let</span> width = img.<span class="property">width</span>;</span><br><span class="line">              canvas.<span class="property">width</span> = width;</span><br><span class="line">              canvas.<span class="property">height</span> = width * (img.<span class="property">height</span> / img.<span class="property">width</span>);</span><br><span class="line">              ctx.<span class="title function_">drawImage</span>(img, <span class="number">0</span>, <span class="number">0</span>, canvas.<span class="property">width</span>, canvas.<span class="property">height</span>);</span><br><span class="line">              <span class="comment">// 转换成base64格式 quality为图片压缩质量 0-1之间  值越小压缩的越大 图片质量越差</span></span><br><span class="line">              <span class="keyword">let</span> data = canvas.<span class="title function_">toDataURL</span>(file.<span class="property">type</span>, quality);</span><br><span class="line">              <span class="keyword">return</span> data</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>某些情况下出现问题，压缩后占内存更大，可使用以下方法</p>
+<p><strong>二分法</strong>：quality取0.5，压缩后比较指定体积和压缩体积；重复进行3-4次</p>
+<h4 id="3-前后端交互数据格式"><a href="#3-前后端交互数据格式" class="headerlink" title="3. 前后端交互数据格式"></a>3. 前后端交互数据格式</h4><ol>
+<li><strong>application&#x2F;json</strong><ul>
+<li>获取到字符串</li>
+</ul>
+</li>
+<li><strong>multipart&#x2F;form-data</strong><ul>
+<li>基于post方法</li>
+<li>一般用来上传文件</li>
+<li>获取到数字</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-原型链"><a href="#4-原型链" class="headerlink" title="4. 原型链"></a>4. 原型链</h4><p>实例对象与原型的连接组成的链（原型对象本身对于对象实例来说也是对象，它也有自己的原型，所以形成了一条原型链）</p>
+<p><code>prototype</code>对于<strong>构造函数</strong>来说它是<strong>属性</strong>，对于<strong>对象的实例</strong>来说它是一个<strong>原型对象</strong></p>
+<ul>
+<li><p>每个对象(<strong>函数也是对象</strong>)都有一个<code>proto</code>属性，指向原型对象</p>
+</li>
+<li><p><code>prototype</code><strong>属性</strong>，它是<strong>函数所独有的</strong>，它是从<strong>一个函数指向一个对象</strong>，也就是这个函数所创建的实例的原型对象</p>
+</li>
+<li><p>每个<strong>原型对象</strong>有一个<code>constructor</code>属性，指向创建对象的<strong>函数</strong>本身</p>
+</li>
+<li><p>原型对象的作用就是定义 所有对象实例所<strong>共享</strong>的属性和方法</p>
+</li>
+<li><p>作为一个对象，当你访问其中的一个属性或方法的时候，如果这个对象中没有这个 方法或属性，那么Javascript引擎将会访问这个对象的<code>proto</code>属性所指向上一个对象(即该对象的原型对象)，并在那个对象中查找指定的方法或属性，如果不能找到，那就会继续通过那个对象 的<code>proto</code>属性指向的对象进行向上查找，直到这个链表结束</p>
+</li>
+<li><p>所有一切的原型顶端，都是<code>Object.prototype</code>,即<code>Object</code>构造函数的<code>prototype</code>属性指向的那个对象</p>
+</li>
+<li><p><code>instanceof</code>是判断 <strong>实例对象</strong>的<code>proto</code> 和 <strong>生成该实例的构造函数</strong>的<code>prototype</code> 是不是<strong>引用同一个地址</strong>(即是否指向同一个原型对象)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">A</span>(<span class="params"></span>)&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title function_">A</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a <span class="keyword">instanceof</span> A); <span class="comment">//true 表示指定对象是否为某个构造函数的实例</span></span><br></pre></td></tr></table></figure>
+
+<p>因为<code>instanceof</code>对整个原型链上的对象都有效，所以<strong>同一个实例对象</strong>，可能会对<strong>多个构造函数</strong>都返回<code>true</code>。只能用于复杂数据类型（数组、对象等），不能用于简单数据类型（布尔值、数字、字符串等）</p>
+</li>
+</ul>
+<h4 id="5-Js继承"><a href="#5-Js继承" class="headerlink" title="5. Js继承"></a>5. Js继承</h4><p>目的：重复利用另外一个对象的属性和方法</p>
+<ol>
+<li><p>原型链继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Woman</span>(<span class="params"></span>)&#123; &#125;</span><br><span class="line"><span class="title class_">Woman</span>.<span class="property"><span class="keyword">prototype</span></span>= <span class="keyword">new</span> <span class="title class_">People</span>();</span><br><span class="line"></span><br><span class="line"><span class="title class_">Woman</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">name</span> = <span class="string">&#x27;haixia&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> womanObj = <span class="keyword">new</span> <span class="title class_">Woman</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：简单易于实现，父类的新增的实例与属性子类都能访问</li>
+<li>缺点：<ul>
+<li>无法实现<strong>多继承</strong></li>
+<li>创建子类实例时，不能向父类构造函数中<strong>传参数</strong></li>
+<li>对象实例共享所有继承的属性和方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>构造函数继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Box</span>(<span class="params">name</span>)&#123;</span><br><span class="line"> <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Box</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Desk</span>(<span class="params">name</span>)&#123;</span><br><span class="line"> <span class="title class_">Box</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>, name) <span class="comment">// 对象冒充，对象冒充只能继承构造里的信息</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> desk = <span class="keyword">new</span> <span class="title class_">Desk</span>(<span class="string">&#x27;ccc&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(desk.<span class="property">name</span>)   <span class="comment">// --&gt; ccc</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(desk.<span class="property">age</span>)    <span class="comment">// --&gt; undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：<ul>
+<li>解决了<strong>原型链实现继承</strong>的<strong>不能传参</strong>的问题</li>
+<li>解决了<strong>父类的原型共享</strong>的问题</li>
+<li>实现<strong>多继承</strong></li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>方法都在构造函数中定义，因此无法实现函数复用</li>
+<li>不能继承<strong>原型</strong>属性&#x2F;方法，只能继承<strong>父类</strong>的实例属性和方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>原型式继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">object</span>(<span class="params">o</span>) &#123;   <span class="comment">//传递一个字面量函数</span></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">F</span>(<span class="params"></span>)&#123;&#125;     <span class="comment">//创建一个构造函数</span></span><br><span class="line"> F.<span class="property"><span class="keyword">prototype</span></span> = o;    <span class="comment">//把字面量函数赋值给构造函数的原型</span></span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">F</span>()     <span class="comment">//最终返回出实例化的构造函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>缺点：修改作为原型的变量<code>o</code>，修改会被共享</p>
+</li>
+<li><p>寄生式继承（与原型式类似）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">obj</span>(<span class="params">o</span>) &#123;</span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">F</span> ()&#123;&#125;</span><br><span class="line"> F.<span class="property"><span class="keyword">prototype</span></span> = o;</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">F</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">create</span>(<span class="params">o</span>)&#123;</span><br><span class="line"> <span class="keyword">var</span> clone = <span class="title function_">obj</span>(o)   <span class="comment">// 通过调用函数创建一个新对象</span></span><br><span class="line"> clone.<span class="property">sayName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;   <span class="comment">// 以某种方式来增强这个对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hi&#x27;</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> clone   <span class="comment">// 返回这个对象</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line"> <span class="attr">name</span>: <span class="string">&#x27;ccc&#x27;</span>,</span><br><span class="line"> <span class="attr">friends</span>: [<span class="string">&#x27;aa&#x27;</span>,<span class="string">&#x27;bb&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> anotherPerson = <span class="title function_">create</span>(person)</span><br><span class="line">anotherPerson.<span class="title function_">sayName</span>()   <span class="comment">// --&gt; hi</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：不需要单独创建构造函数</li>
+<li>缺点：给对象添加函数会导致函数难以重用</li>
+</ul>
+</li>
+<li><p>class继承</p>
+</li>
+</ol>
+<h4 id="6-JS中的数据类型"><a href="#6-JS中的数据类型" class="headerlink" title="6. JS中的数据类型"></a>6. JS中的数据类型</h4><ul>
+<li>基础数据类型(原始)：<ul>
+<li>number</li>
+<li>boolean</li>
+<li>string</li>
+<li>null</li>
+<li>undefined</li>
+<li>symbol（es6）</li>
+<li>bigint(谷歌67)</li>
+</ul>
+</li>
+<li>引用数据类型(对象)：<ul>
+<li>object</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-判断数据类型"><a href="#7-判断数据类型" class="headerlink" title="7. 判断数据类型"></a>7. 判断数据类型</h4><ol>
+<li><p><code>Object.prototype.toString()</code></p>
+<p>注意：Object原型对象上的toString方法才能判断，其他原型对象上的不能判断，如：Array重写了toString不能判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(要判断类型的数据);</span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">apply</span>(要判断类型的数据);</span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">bind</span>(要判断类型的数据)();</span><br></pre></td></tr></table></figure>
+
+<p>缺点：无法判断<strong>自定义构造函数</strong>创造出来的实例</p>
+<p>eg：<img src="https://raw.githubusercontent.com/LVZJself/image/main/20221127221206.png"></p>
+</li>
+<li><p><code>constructor属性</code></p>
+<p>用来判断某个实例对象是不是这个构造函数创建出来的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Anamil</span>(<span class="params">name</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> ana1 = <span class="keyword">new</span> <span class="title class_">Anamil</span>(<span class="string">&#x27;dog&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(ana1.<span class="property">constructor</span> == <span class="title class_">Anamil</span>)<span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(ana1.<span class="property">constructor</span> == <span class="title class_">Object</span>)<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>instanceof</code></p>
+<p>用来判断B在不在A的原型链上</p>
+</li>
+<li><p><code> typeof</code></p>
+<p>注意：<code>typeof</code>运算符识别<code>null</code>的时候会返回<code>Object</code></p>
+</li>
+</ol>
+<h4 id="8-判断是否为数组"><a href="#8-判断是否为数组" class="headerlink" title="8. 判断是否为数组"></a>8. 判断是否为数组</h4><ol>
+<li><p><code>isArray</code> 方法</p>
+<p><code>Array.isArray(arr); // true</code></p>
+</li>
+<li><p>对象原型：判断是否有相同原型链顶端</p>
+<p><code>arr.__proto__ === Array.prototype; // true</code></p>
+</li>
+<li><p><code>instance</code>：检测构造函数的 <code>prototype</code> 属性是否出现在某个实例对象的原型链上</p>
+<p><code>arr instanceof Array; // true</code></p>
+</li>
+<li><p>Object.prototype.toString.call()：所有原始数据类型都能通过该方法判断，具有通用性</p>
+</li>
+</ol>
+<h4 id="9-Null-和-undefined-的区别"><a href="#9-Null-和-undefined-的区别" class="headerlink" title="9. Null 和 undefined 的区别"></a>9. Null 和 undefined 的区别</h4><p><strong>未声明变量</strong>：未使用var、let、const声明变量，就为一个变量赋值</p>
+<ul>
+<li>全局作用域（严格模式下报错）</li>
+</ul>
+<p><strong>undefined</strong>：一个变量已经声明但没有赋值&#x2F;未被声明&#x2F;没有传入实参的形参变量&#x2F;函数什么都不返回默认返回</p>
+<ul>
+<li>使用严格相等（&#x3D;&#x3D;&#x3D;）检查，使用非严格相等（&#x3D;&#x3D;）与null判断时，返回为true</li>
+</ul>
+<p><strong>null</strong>：只能被显式赋值给变量</p>
+<ul>
+<li>检查同undefined</li>
+</ul>
+<h4 id="10-call-bind-apply的区别"><a href="#10-call-bind-apply的区别" class="headerlink" title="10. call bind apply的区别"></a>10. call bind apply的区别</h4><ul>
+<li><p>相同点：</p>
+<ul>
+<li>第一个参数都是<code>this</code>的指向，且当第一个参数为<code>null或undefined</code>的时候，默认指向<code>window</code>(在浏览器中)</li>
+<li>都改变<code>this</code>指向</li>
+</ul>
+</li>
+<li><p><code>apply</code></p>
+<ul>
+<li>第二个参数是函数接受的参数，<strong>以数组的形式传入</strong></li>
+<li><strong>立即</strong>执行</li>
+<li>仅改变一次<code>this</code>指向</li>
+</ul>
+</li>
+<li><p><code>call</code></p>
+<ul>
+<li>后面传入的是一个<strong>参数列表</strong>（注意和<code>apply</code>传参的区别），依次传参</li>
+<li><strong>立即</strong>执行</li>
+<li>仅改变一次<code>this</code>指向</li>
+</ul>
+</li>
+<li><p><code>bind</code></p>
+<ul>
+<li>依次传参</li>
+<li>异步代码，不会立即执行，而是返回一个新的函数</li>
+<li>绑定在返回的新函数</li>
+</ul>
+</li>
+</ul>
+<h4 id="11-防抖节流"><a href="#11-防抖节流" class="headerlink" title="11. 防抖节流"></a>11. 防抖节流</h4><h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><h4 id="1-hook"><a href="#1-hook" class="headerlink" title="1. hook"></a>1. hook</h4><p><strong>React 不允许 hook 处于条件语句</strong>：</p>
+<p>  React 把每次 render 中 useState 的顺序值 0、1、2、3 当成了 key，方便后续 render 用 key 查找对应的 state。这样的目的是使 useState 更简洁。 注意：因为我们保证了 hooks 的调用顺序（不保证就会报错），所以 hooks 内部可以使用链表来实现，而不要因果倒置。</p>
+<ul>
+<li><p>useState</p>
+<p>异步</p>
+</li>
+<li><p>useEffect</p>
+<ol>
+<li>每次渲染都要执行：则第二个参数不需要</li>
+<li>在组件销毁或者调用函数前调用：则第一个参数中增加return语句</li>
+<li>只在组件挂载时执行一次：则第二个参数用空数组:[]</li>
+<li>只在某一个state或者prop值发生变化后，才执行：则第二个参数[变量名]</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    effect<span class="comment">//每次渲染时执行</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        cleanup<span class="comment">//清除时执行的操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, [input])<span class="comment">//input是控制的变量</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>useContext</p>
+<p>组件间通信</p>
+<ul>
+<li>context可以是非父组件，只要是祖先即可，而且是最近的那个</li>
+<li>提取的是value值</li>
+<li>上层组件或本组件context的value值更新都会重新渲染</li>
+<li>使用下层组件需要使用<code>&lt;MyContext.Provider&gt;</code>包裹</li>
+</ul>
+</li>
+<li><p><strong>自定义hook</strong></p>
+<p><strong>逻辑的复用</strong>，类似于方法</p>
+<ul>
+<li>自定义hook中可以调用其他hook</li>
+<li>必须以use开头，就像组件必须以大写字母开头一样</li>
+<li>自定义hook中管理state也是使用useState、useEffect，因为useState在调用的时候就是完全独立的</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/27/bagu/" data-id="clazhl5nf0000xgbhcppw5qj6" data-title="八股" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/10/07/%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">算法题记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/27/bagu/">八股</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/07/%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/">算法题记录</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/07/%E5%89%8D%E7%AB%AF%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">前端零碎的知识点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
