@@ -1175,11 +1175,24 @@
 </li>
 </ul>
 </li>
-<li></li>
+<li><p><code>lastIndex</code>：来做顺序优化，通过这个变量判断节点是否需要移动</p>
+<ul>
+<li><p>默认值是<code>0</code>，它会与<code>map</code>中的元素进行比较，满足 <code>index &lt; lastIndex</code> 的条件时，进行移动操作并改变值</p>
+<p><code>lastIndex = max(index,lastIndex)</code></p>
+<p>eg：<img src="https://raw.githubusercontent.com/LVZJself/image/main/20221206154324.png"></p>
+<ol>
+<li>React先从新中取得B，然后判断旧中是否存在相同节点B，当发现存在节点B后，就去判断是否移动B。<br>   B在旧中的<code>index=1</code>，它的<code>lastIndex=0</code>，不满足<code> index &lt; lastIndex</code> 的条件，因此 B 不做移动操作。此时，<code>lastIndex=(index,lastIndex)</code>中的较大数<code>=1</code>.</li>
+<li>看着 A，A在旧的<code>index=0</code>，此时的<code>lastIndex=1</code>（因为先前与新的B比较过了），满足<code>index&lt;lastIndex</code>，因此，对A进行移动操作，此时<code>lastIndex=max(index,lastIndex)=1</code>。</li>
+<li>看着D，D在旧的<code>index=3</code>，此时<code>lastIndex=1</code>, 不满足<code>index&lt;lastIndex</code>, 所以不移动。比较完后，<code>lastIndex=max(index,lastIndex)=3</code></li>
+<li>看着C，C在旧的<code>index=2</code>，此时<code>lastIndex=3</code>, 满足<code>index&lt;lastIndex</code>，所以C进行移动。<br>由于C已经是最后一个节点，所以diff操作结束。</li>
+</ol>
+</li>
 </ul>
 </li>
 </ul>
-
+</li>
+</ul>
+<h4 id="3-组件复用"><a href="#3-组件复用" class="headerlink" title="3. 组件复用"></a>3. 组件复用</h4>
       
     </div>
     <footer class="article-footer">
