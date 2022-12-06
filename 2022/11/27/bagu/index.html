@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082139323.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221204213521.png">
 <meta property="article:published_time" content="2022-11-27T07:45:54.000Z">
-<meta property="article:modified_time" content="2022-12-05T14:35:54.612Z">
+<meta property="article:modified_time" content="2022-12-06T03:26:36.056Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221125164843.png">
@@ -1153,7 +1153,46 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-React-diff"><a href="#2-React-diff" class="headerlink" title="2. React diff"></a>2. React diff</h4>
+<h4 id="2-React-diff"><a href="#2-React-diff" class="headerlink" title="2. React diff"></a>2. React diff</h4><ul>
+<li><p>Diff算法的限制策略： </p>
+<ul>
+<li>只对<strong>同级元素</strong>进行Diff。如果一个DOM节点在前后两次更新中跨越了层级，那么React不会尝试复用他。</li>
+<li>两个<strong>不同类型</strong>的元素会产生出不同的树。如果元素由div变为p，React会销毁div及其子孙节点，并新建p及其子孙节点。</li>
+<li>开发者可以通过 <code>key</code>属性 来暗示哪些子元素在不同的渲染下能保持稳定（即是否可<strong>稳定复用</strong>）</li>
+</ul>
+</li>
+<li><p>不同类型</p>
+<ul>
+<li><p>同级的节点数量将Diff分为两类：</p>
+<ul>
+<li><p>当<code>newChild</code>类型为<code>object、number、string，</code>代表同级只有一个节点</p>
+<p>React通过先判断该节点的<code>key</code>是否相同，如果<code>key``相同再判断节点类型</code>type&#96;是否相同，只有二者都相同时，那么这个DOM节点才能复用</p>
+</li>
+<li><p>当<code>newChild</code>类型为<code>Array</code>，同级有多个节点</p>
+<p>用新集合中的节点去和老集合中的节点进行diff：</p>
+<ul>
+<li><p>diff结束后，如果新集合中还有未进行diff的节点，说明该节点是需要新增的，对该节点执行新增逻辑</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">// 之后情况1 新增节点</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;</span><br><span class="line">    &lt;li key=&quot;2&quot;&gt;2&lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>diff结束后，如果老集合中还有未进行diff的节点，说明该节点是需要删除的，对该节点执行删除逻辑</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">// 之后情况2 删除节点</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>diff结束后，如果新老集合都还有未进行diff的节点，说明在diff过程中，出现了不可复用的节点，对该节点进行更新</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line">            &lt;li key=<span class="string">&quot;0&quot;</span>&gt;<span class="number">0</span>&lt;/li&gt;</span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            </span><br><span class="line"><span class="comment">// 之后</span></span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&quot;0&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">key</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&quot;3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>diff结束后，如果新老集合中的节点刚好diff完，</p>
+<p>（1）新旧集合中存在相同节点，并且位置相同，无需移动节点。</p>
+<p>（2）新旧集合中存在相同节点但位置不同时，需要移动对老集合中的节点进行移动处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">// 之后</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
