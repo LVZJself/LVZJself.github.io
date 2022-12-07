@@ -24,8 +24,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/202210082139323.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221204213521.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221206154324.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221207195610.png">
 <meta property="article:published_time" content="2022-11-27T07:45:54.000Z">
-<meta property="article:modified_time" content="2022-12-06T14:44:10.979Z">
+<meta property="article:modified_time" content="2022-12-07T14:33:02.547Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221125164843.png">
@@ -1214,6 +1215,45 @@
 </li>
 <li><p><code>Hooks</code></p>
 <p>将可复用逻辑抽离成函数</p>
+</li>
+</ul>
+<h4 id="4-React-fiber"><a href="#4-React-fiber" class="headerlink" title="4. React fiber"></a>4. React fiber</h4><p><code>React Fiber</code>是对核心算法的一次重新实现</p>
+<p>v16版本发布<code>fiber reconciler</code>，之前称为<code>stack reconciler</code></p>
+<p><code>React Fiber</code> 把更新过程碎片化，每执行完一段更新过程，就把控制权交还给 React 负责任务协调的模块，看看有没有其他紧急任务</p>
+<p>做，如果没有就继续去更新，如果有紧急任务，那就去做紧急任务</p>
+<p>解决：渲染的组件比较庞大，js执行会占据主线程时间较长，会导致页面响应度变差，使得react在动画、手势等应用中效果比较差</p>
+<ul>
+<li>一个 <code>fiber</code>（小写’f’）是一个简单的 JavaScript 对象。它代表 React 元素或 DOM 树的一个节点。它是一个工作单位。</li>
+<li>相比之下，<code>Fiber</code> 是 <code>React Fiber</code> 的协调器</li>
+</ul>
+<h4 id="5-生命周期"><a href="#5-生命周期" class="headerlink" title="5. 生命周期"></a>5. 生命周期</h4><p>废除的函数：</p>
+<p>  原因：在render函数之前的所有函数，都有可能被执行多次</p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillRecieveProps</li>
+<li>componentWIllUpdate</li>
+</ul>
+<p>三个阶段</p>
+<p><img src="https://raw.githubusercontent.com/LVZJself/image/main/20221207195610.png"></p>
+<p>新增</p>
+<ul>
+<li><p>挂载阶段：也被称为初始化阶段，表示组件第一次在DOM树中进行渲染的过程</p>
+<ul>
+<li><p><code>getDerivedStateFromProps</code>：</p>
+<p>只要页面<code>update</code>就会被触发；从<code>props</code>中获取<code>state</code>；返回值是一个对象，这个对象的作用和<code>setState</code>一样用于更新<code>state</code>，返回值为<code>null</code>时，不更新<code>state</code>状态。提供给我们一个在渲染之前操作<code>state</code>的机会</p>
+</li>
+</ul>
+</li>
+<li><p>更新阶段：也叫存在阶段，表示组件被重新渲染的过程</p>
+<ul>
+<li><p><code>getSnapshotBeforeUpdate(prevProps, prevState)</code>：</p>
+<p><code>update</code>发生的时候，在<code>render</code>之后可以读取但无法使用DOM的时候。它使您的组件可以在可能更改之前从DOM捕获一些信息</p>
+</li>
+</ul>
+</li>
+<li><p>卸载阶段：也叫销毁阶段，表示组件从DOM中删除的过程</p>
+</li>
+<li><p>新增错误处理：<code>componentDidCatch(error，info)</code>：任何一处的javascript报错会触发</p>
 </li>
 </ul>
 
