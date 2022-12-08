@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221206154324.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221207195610.png">
 <meta property="article:published_time" content="2022-11-27T07:45:54.000Z">
-<meta property="article:modified_time" content="2022-12-07T14:33:02.547Z">
+<meta property="article:modified_time" content="2022-12-08T07:02:16.931Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/LVZJself/image/main/20221125164843.png">
@@ -1256,6 +1256,40 @@
 <li><p>新增错误处理：<code>componentDidCatch(error，info)</code>：任何一处的javascript报错会触发</p>
 </li>
 </ul>
+<h4 id="6-React性能优化"><a href="#6-React性能优化" class="headerlink" title="6. React性能优化"></a>6. React性能优化</h4><ol>
+<li><p>避免使用内联函数</p>
+<ul>
+<li><p>原因：每次render渲染时，都会创建一个新的函数实例</p>
+<p>当<code>React</code>进行DOM diffing&#96;时，它每次都会找到一个新的函数实例；因此在渲染阶段它会会绑定新函数并将旧实例扔给垃圾回收</p>
+<p>因此直接绑定内联函数就需要额外做<strong>垃圾回收</strong>和<strong>绑定到 DOM 的新函数</strong>的工作</p>
+</li>
+<li><p>解决方法：在组件内部创建一个函数，并将事件绑定到该函数本身</p>
+</li>
+</ul>
+</li>
+<li><p>使用懒加载组件</p>
+<p>优点：</p>
+<ul>
+<li>主包体积变小，消耗的网络传输时间更少。</li>
+<li>动态单独加载的包比较小，可以迅速加载完成。</li>
+</ul>
+<p>例如：假设有两个组件 <code>WelcomeComponent </code>或 <code>GuestComponents</code>，我们根据用户是否登录而渲染其中一个</p>
+</li>
+<li><p>纯组件</p>
+<ul>
+<li>扩展 <code>React.PureComponent</code> 类的类组件被视为<strong>纯组件</strong></li>
+<li><code>PureComponents</code> 负责 <code>shouldComponentUpdate</code>：对<code>状态和 props</code> 数据进行浅层比较<ul>
+<li>如果先前的状态和 props 数据与下一个 props 或状态相同，则组件不会重新渲染</li>
+<li>比较基元和对象引用的开销比更新组件视图要低</li>
+<li>状态的浅层比较表明 props 或状态的数据没有变化，因此不需要渲染组件，从而提升了性能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>React fragement</code></p>
+<p>减少了包含的额外标记数量，这些标记只是为了满足在 React 组件中具有公共父级的要求</p>
+</li>
+</ol>
 
       
     </div>
