@@ -1274,8 +1274,40 @@
 <li><p><code>React fragement</code></p>
 <p>减少了包含的额外标记数量，这些标记只是为了满足在 React 组件中具有公共父级的要求</p>
 </li>
+<li><p>在 <code>Constructor</code> 的早期绑定函数</p>
+<p>当我们在 React 中创建函数时，我们需要使用 bind 关键字将函数绑定到当前上下文。</p>
+<p>绑定可以在构造函数中完成，也可以在我们将函数绑定到 DOM 元素的位置上完成。</p>
+<p>最好在构造函数调用期间使用绑定</p>
+<p>这将减少将函数绑定到当前上下文的开销，无需在每次渲染时重新创建函数，从而提高应用的性能</p>
+</li>
+<li><p>避免使用内联样式属性</p>
+<p>使用内联样式时浏览器需要花费更多时间来处理脚本和渲染</p>
+<p>更好的办法是将 CSS 文件导入组件</p>
+</li>
+<li><p>优化 React 中的条件渲染</p>
+<p>安装和卸载 React 组件是昂贵的操作。为了提升性能，我们需要减少安装和卸载的操作</p>
+<p>eg：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">name</span> == <span class="string">&quot;Mayank&quot;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">AdminHeaderComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">AdminHeaderComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">HeaderComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">HeaderComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ContentComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">ContentComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">HeaderComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">HeaderComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ContentComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">ContentComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//上面的代码中有一个条件语句，让组件根据指定的条件渲染</span></span><br><span class="line"><span class="comment">//代码有性能问题</span></span><br><span class="line"><span class="comment">//每次调用 render 函数，并且值在 Mayank 和另一个值之间切换时，都会执行不同的 if else 语句</span></span><br><span class="line"><span class="comment">//diffing 算法会运行一个检查，发现AdminHeaderComponent 不可用，并且需要渲染的第一个组件是 HeaderComponent</span></span><br><span class="line"><span class="comment">//组件 HeaderComponent 和 ContentComponent 将在位置 1 和位置 2 卸载并重新安装，这些组件没有更改所以无意义</span></span><br><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">        //删掉下一</span></span><br><span class="line"><span class="language-xml">        //&#123; this.state.name == &quot;Mayank&quot; &amp;&amp; <span class="tag">&lt;<span class="name">AdminHeaderComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">AdminHeaderComponent</span>&gt;</span> &#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">HeaderComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">HeaderComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ContentComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">ContentComponent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//选用上面组件时，当 name 不是 Mayank 时，React 在位置 1 处放置 null</span></span><br><span class="line"><span class="comment">//开始 DOM diffing 时，位置 1 的元素从 AdminHeaderComponent 变为 null，但位置 2 和位置 3 的组件保持不变</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>节流防抖</p>
+</li>
+<li><p>使用CDN</p>
+</li>
+<li><p>用 CSS 动画代替 JavaScript 动画</p>
+</li>
+<li><p>React 组件的服务端渲染</p>
+<ul>
+<li><p>服务端渲染可以减少初始页面加载延迟</p>
+</li>
+<li><p>服务端渲染是指第一个组件显示的内容是从服务器本身发送的，而不是在浏览器级别操作。之后的页面直接从客户端加载</p>
+<p>这样我们就能把初始内容放在服务端渲染，客户端只按需加载部分页面</p>
+</li>
+<li><p>SEO 优化：爬虫在应用初始加载时查找页面内容。在客户端渲染时初始 Web 页面不包含所需的组件，这些组件需要等 React 脚本等文件加载完毕后才渲染出来</p>
+</li>
+</ul>
+</li>
 </ol>
-
+<h4 id="7-React事件绑定原理"><a href="#7-React事件绑定原理" class="headerlink" title="7. React事件绑定原理"></a>7. React事件绑定原理</h4>
       
     </div>
     <footer class="article-footer">
